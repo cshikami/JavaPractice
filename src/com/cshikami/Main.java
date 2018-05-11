@@ -3,6 +3,7 @@ package com.cshikami;
 import java.awt.*;
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -142,7 +143,40 @@ public class Main {
         }
         System.out.println();
 
-        
+        /* Java Libraries
+        * Java.lang
+        * -Fundamental to the core Java language (math, boolean, byte)
+        *
+        * Java.util
+        * -Generic utilities (scanning, formatting strings, data manipulation)
+        *
+        * Java.net
+        * -Infrastructure for networking
+        */
+
+        double power = Math.pow(5, 3);
+        System.out.println(power);
+
+        double squareRoot = Math.sqrt(64);
+        System.out.println(squareRoot);
+
+        Random rand = new Random();
+        int randomNumber = rand.nextInt();
+        System.out.println(randomNumber);
+
+        int randomNumberWithBound = rand.nextInt(10);
+        System.out.println(randomNumberWithBound); //prints random number between 0 and 9
+
+
+        Coin c = new Coin();
+        System.out.println("Initial: " + c.getFaceUp());
+
+        for(int i = 0; i < 10; i++) {
+            c.flip();
+            System.out.println("After flip: " + c.getFaceUp());
+        }
+
+
 //        int userAge = scanner.nextInt();
 //        double userAge2 = scanner.nextDouble();
 
