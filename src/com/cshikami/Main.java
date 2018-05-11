@@ -134,6 +134,15 @@ public class Main {
 
         System.out.println("Final y: " + y);
         System.out.println();
+
+        //FOR LOOP
+        System.out.println("For Loop");
+        for(int i = 3; i > 0; i--) {
+            System.out.println("Current i: " + i);
+        }
+        System.out.println();
+
+        
 //        int userAge = scanner.nextInt();
 //        double userAge2 = scanner.nextDouble();
 
