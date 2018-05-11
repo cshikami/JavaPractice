@@ -1,0 +1,244 @@
+java review
+
+
+java compiling and running from the console
+
+	javac myExample.java (to compile)
+
+	java myExample (to run)
+
+
+hello world program
+
+public class Main {
+
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+
+	compile with javac Main.java
+	run with java Main
+
+	displays to user in console:
+	Hello, World!
+
+hello world that takes an argument program
+
+public class Main {
+	
+	public static void main(String[] args) {
+		System.out.println("Hello, World!");
+		System.out.println(args[0]);
+	}
+}
+
+	compile with javac Main.java
+	run with java Main myArgument
+
+	displays to user in console:
+	Hello, World!
+	myArgument
+
+
+compiling and running with package structure to organize classes
+
+	good if you work at an organization with a particular file structure
+
+	javac com.cshikami.myExample.java
+	java com.cshikami.myExample myArgument
+
+
+Declaring Primitive Variables
+
+	Java is a statically typed language
+	All variables must have their types declared.
+
+
+		identifier
+		 v
+	int myVar = 5;  <-- value
+	^
+data type
+
+
+int myVar  (establishes the variable but does not explicitly assign its initial value)
+
+then myVar = 0; (assigns myVar the value of 0)
+
+Numeric Primitive Data Types
+
+Data type 		Bits 			Minimum 			Maximum
+
+byte			 8				-128				127
+short 			16				-32768				32767
+int 			32 				-2147483648     	2147483647 (most common prim data type, about 2 billion)
+long			64				-9.22337E+18		9.22337E+18 (to store very large integers)
+float 			32 		(to store fractional values)
+double 			64		(to store fractional values, used most commonly, largest range and highest level of precision)
+
+	for example:
+	a byte stores 8 bits of memory, and it's minimum value is -128 and 
+	its maximum is 127
+
+	All numeric primitive data types are signed
+	This means that their ranges extend from  negative to positive numbers
+
+Each primitive has a helper class that's a part of the Java runtime library
+
+Each of these classes can be used for converting values from one primitive data type to another 
+and to format values using very simple logic
+
+Data Type 			Helper Class
+
+byte 				Byte
+short				Short
+int 				Integer
+long				Long
+float				Float
+
+each helper class is a member of a package called java.lang
+
+Helper Class Example
+
+java.lang.Double supports double values
+
+		identifier
+		    v
+double doubleValue = 156.5d;  <-- assigned value (the d explicitly sets the value as a double)
+^
+data type
+
+
+to convert doubleValue to a byte:
+
+double doubleValue = 156.5d;
+Double doubleObj = new Double(doubleValue);
+byte byteValue = doubleObj.byteValue(); (declare a byte named byteValue, and use method of Double helper class byteValue() wrapped around Double value, and this converts doubleObj to a byte)
+
+to convert doubleValue to an int:
+
+double doubleValue = 156.5d;
+Double doubleObj = new Double(doubleValue);
+int intValue = doubleObj.intValue(); 
+
+to convert doubleValue to a float:
+
+double doubleValue = 156.5d;
+Double doubleObj = new Double(doubleValue);
+float floatValue = doubleObj.floatValue();
+
+to convert doubleValue to a String:
+
+double doubleValue = 156.5d;
+Double doubleObj = new Double(doubleValue);
+String stringValue = doubleObj.toString(); //a special case, all Java classes have a toString() method in charge of converting an object to a string
+
+
+all numeric primitives have default values and they always default to a value of zero
+
+example:
+
+public class helloWorld {
+
+			private static int myInt; //myInt is a private variable of the helloWorld class
+
+			public static void main(String[] args) {
+						System.out.println("Hello, world!");
+						System.out.println(args[0]);
+						System.out.println("The value of myInt is " + myInt); //myInt is default value of 0
+			}
+}
+
+java helloWorld myArgument
+
+displays in console:
+
+Hello, world!
+myArgument
+The value of myInt is 0
+
+
+NOTE:
+to run program with arguments in IntelliJ, do Run... -> Edit configurations... -> Program arguments:
+
+
+declaring primitive values: 
+
+public class Main {
+
+    private static int myInt;
+
+    public static void main(String[] args) {
+
+        byte b = 1;
+        short sh = 1;
+        int i = 1;
+        long l = 1L;
+
+        float f = 1f;
+        double d = 1d;
+
+        System.out.println("Byte: " + b);
+        System.out.println("Short: " + sh);
+        System.out.println("Int: " + i);
+        System.out.println("Long: " + l);
+        System.out.println("Float: " + f);
+        System.out.println("Double: " + d);
+
+        System.out.println("Hello, World!");
+        System.out.println(args[0]);
+        System.out.println("The value of myInt is " + myInt);
+    }
+}
+
+prints to console (with myArgument as argument):
+
+Byte: 1
+Short: 1
+Int: 1
+Long: 1
+Float: 1.0
+Double: 1.0
+Hello, World!
+myArgument
+The value of myInt is 0
+
+
+public class MaxValues {
+
+    public static void main(String[] args) {
+
+        byte b = 127;
+        System.out.println("Byte: " + b);
+        b++;
+        System.out.println("Byte: " + b); //127 is max value of a byte. Without if statement, if you add 1 more, it wraps around
+                                          //and now has minimum value for that data type
+    }
+}
+
+prints to console:
+Byte: 127
+Byte: -128
+
+
+public class MaxValues {
+
+    public static void main(String[] args) {
+
+        byte b = 127;
+        System.out.println("Byte: " + b);
+
+        if (b < Byte.MAX_VALUE) { //if this Boolean expression condition is true.. 
+        						  //Byte with uppercase B is the helper class for byte values, it has a constant or static field named 
+        						  //MAX_VALUE, which represents the largest value that this data type can have.
+            b++; 
+        }
+        System.out.println("Byte: " + b); //if statement protects b from wrapping around
+    }
+}
+
+prints to console:
+Byte: 127
+Byte: 127
+
