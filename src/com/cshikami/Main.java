@@ -89,6 +89,7 @@ public class Main {
         dog1.fetchRandom();
         dog1.fetchRandom();
 
+        /* must comment this out when using other scanner
         System.out.println("Please enter an age (Type Q to quit program): ");
 
 
@@ -111,7 +112,10 @@ public class Main {
                 Age enteredString = new Age(userString);
                 enteredString.printExitMessage();
             }
-        }
+            scanner.close();
+        }*/
+
+
 
         System.out.println("While Loop");
         int x = 3;
@@ -176,6 +180,25 @@ public class Main {
             System.out.println("After flip: " + c.getFaceUp());
         }
 
+        Dice d = new Dice();
+        d.roll();
+        /*System.out.println("Enter either quit or roll to roll the two dice");
+        Scanner scanner = new Scanner(System.in);
+        String userCommand = scanner.next();
+
+        if(!userCommand.equals("quit")) {
+            if (userCommand.equals("roll")) {
+                d.roll();
+            }
+        }*/
+        /*if (userCommand.equals("roll")) {
+            System.out.println("Good");
+        }*/
+
+        //when user types "roll", dice rolls and outputs value of each dice
+        //like "Dice 1: 4"
+        //"Dice 2: 3"
+        //"Total amount:7"
 
 
 //        int userAge = scanner.nextInt();
