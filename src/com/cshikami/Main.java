@@ -202,6 +202,25 @@ public class Main {
         int userEntry = myScanner.nextInt();
 
         myBankAccount.userInterface(userEntry);
+
+        Insect insect = new Insect(5, 6);
+        Spider spider = new Spider(13, true);
+        Cricket cricket = new Cricket(2, 1.25);
+
+        insect.crawl();
+        insect.says();
+
+        spider.crawl();
+        spider.says();
+
+        cricket.crawl();
+        cricket.says();
+        cricket.jump();
+
+        if (spider instanceof Insect && spider instanceof Spider) {
+            System.out.println("Spider is an insect and a spider");
+        }
+
         /*System.out.println("Enter either quit or roll to roll the two dice");
         Scanner scanner = new Scanner(System.in);
         String userCommand = scanner.next();
