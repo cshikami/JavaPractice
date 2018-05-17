@@ -182,6 +182,26 @@ public class Main {
 
         Dice d = new Dice();
         d.roll();
+
+        BankAccount myBankAccount = new BankAccount(4141, 100);
+//        System.out.println(myBankAccount.bank_account);
+
+        myBankAccount.getAccount_balance();
+
+        myBankAccount.deposit(-60);
+        myBankAccount.withdraw(150);
+
+        myBankAccount.deposit(100);
+        myBankAccount.withdraw(200);
+
+        myBankAccount.getAccount_balance();
+
+        Scanner myScanner = new Scanner(System.in);
+        System.out.println("Welcome.\n*Press 1 to check account balance\n*Press 2 to deposit\n*Press 3 to withdraw\n*And 0 to exit");
+
+        int userEntry = myScanner.nextInt();
+
+        myBankAccount.userInterface(userEntry);
         /*System.out.println("Enter either quit or roll to roll the two dice");
         Scanner scanner = new Scanner(System.in);
         String userCommand = scanner.next();
