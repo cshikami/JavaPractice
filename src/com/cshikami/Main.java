@@ -203,6 +203,9 @@ public class Main {
 
         myBankAccount.userInterface(userEntry);
 
+
+        //Inheritance
+
         Insect insect = new Insect(5, 6);
         Spider spider = new Spider(13, true);
         Cricket cricket = new Cricket(2, 1.25);
@@ -220,6 +223,61 @@ public class Main {
         if (spider instanceof Insect && spider instanceof Spider) {
             System.out.println("Spider is an insect and a spider");
         }
+
+        //Interfaces
+
+        Dog2 d2 = new Dog2();
+        Cat c2 = new Cat();
+
+        if (c2 instanceof Pet) {
+            c2.play();
+        }
+
+        if (d2 instanceof Pet) {
+            d2.play();
+        }
+
+        Pet p;
+        Random rand2 = new Random();
+        int n = rand2.nextInt(2);
+
+        //p is initialized to either Dog2 or Cat
+        if (n == 0) {
+            p = new Dog2();
+        } else {
+            p = new Cat();
+        }
+
+        p.play(); //we say which one p is initialized to by which play() method it prints out to the consoleq
+
+
+        //Interfaces are the definition of a behavior
+        //When used, they force classes and objects to have certain properties without forcing their implementation
+        //For example, every pet must have play() property, but the implementation of the play method is up to
+        //each individual class that implements the interface
+
+
+        //Functional Programming
+
+        //Functional programming focuses on computing results from functions rather than performing
+        //actions on objects
+
+        //In functional programming, objects are immutable
+
+        //Instead of modifying or changing an object, you create a new object which looks like the old
+        //object, except for the change
+
+        Answerable phone = () -> "Hello"; //no input, returns "Hello"
+
+        System.out.println(phone.answer()); //returns correctly because phone.answer() has 0 inputs and returns a string
+                                            // and in this implementation we have 0 inputs and return a string
+
+        Predicate isOdd = n2 -> n2 % 2 != 0; //n is the input, true if n is odd, false if n is even
+
+        System.out.println(isOdd.test(2));
+
+        Predicate isEven = n3 -> n3 % 2 == 0;
+        System.out.println(isEven.test(2));
 
         /*System.out.println("Enter either quit or roll to roll the two dice");
         Scanner scanner = new Scanner(System.in);
